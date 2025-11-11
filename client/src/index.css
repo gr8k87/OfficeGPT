@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 210 11% 11%; /* #1A1A1A */
+  --foreground: 0 0% 93%; /* #ECECEC */
+  --muted: 0 0% 18%; /* #2D2D2D */
+  --muted-foreground: 220 9% 64%; /* #9CA3AF */
+  --popover: 0 0% 18%; /* #2D2D2D */
+  --popover-foreground: 0 0% 93%; /* #ECECEC */
+  --card: 0 0% 18%; /* #2D2D2D */
+  --card-foreground: 0 0% 93%; /* #ECECEC */
+  --border: 0 0% 25%; /* #404040 */
+  --input: 0 0% 25%; /* #404040 */
+  --primary: 158 64% 52%; /* #10A37F */
+  --primary-foreground: 158 100% 99%; /* #FFFFFF */
+  --secondary: 0 0% 18%; /* #2D2D2D */
+  --secondary-foreground: 0 0% 93%; /* #ECECEC */
+  --accent: 0 0% 18%; /* #2D2D2D */
+  --accent-foreground: 0 0% 93%; /* #ECECEC */
+  --destructive: 0 84% 60%; /* #EF4444 */
+  --destructive-foreground: 0 0% 98%; /* #FAFAFA */
+  --ring: 158 64% 52%; /* #10A37F */
+  --radius: 0.75rem;
+  
+  /* Custom office colors */
+  --office-dark: 0 0% 10%; /* #1A1A1A */
+  --office-sidebar: 0 0% 18%; /* #2D2D2D */
+  --office-accent: 158 64% 52%; /* #10A37F */
+  --office-text: 0 0% 93%; /* #ECECEC */
+  --office-text-secondary: 220 9% 64%; /* #9CA3AF */
+  --office-border: 0 0% 25%; /* #404040 */
+}
+
+.dark {
+  --background: 210 11% 11%; /* #1A1A1A */
+  --foreground: 0 0% 93%; /* #ECECEC */
+  --muted: 0 0% 18%; /* #2D2D2D */
+  --muted-foreground: 220 9% 64%; /* #9CA3AF */
+  --popover: 0 0% 18%; /* #2D2D2D */
+  --popover-foreground: 0 0% 93%; /* #ECECEC */
+  --card: 0 0% 18%; /* #2D2D2D */
+  --card-foreground: 0 0% 93%; /* #ECECEC */
+  --border: 0 0% 25%; /* #404040 */
+  --input: 0 0% 25%; /* #404040 */
+  --primary: 158 64% 52%; /* #10A37F */
+  --primary-foreground: 158 100% 99%; /* #FFFFFF */
+  --secondary: 0 0% 18%; /* #2D2D2D */
+  --secondary-foreground: 0 0% 93%; /* #ECECEC */
+  --accent: 0 0% 18%; /* #2D2D2D */
+  --accent-foreground: 0 0% 93%; /* #ECECEC */
+  --destructive: 0 84% 60%; /* #EF4444 */
+  --destructive-foreground: 0 0% 98%; /* #FAFAFA */
+  --ring: 158 64% 52%; /* #10A37F */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+  
+  html, body, #root {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+@layer components {
+  .office-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .office-scrollbar::-webkit-scrollbar-track {
+    background: hsl(var(--office-sidebar));
+  }
+  
+  .office-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--office-border));
+    border-radius: 3px;
+  }
+  
+  .office-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--office-text-secondary));
+  }
+  
+  .message-animation {
+    animation: slideInUp 0.3s ease-out;
+  }
+  
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .loading-dots {
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  .sidebar-transition {
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+/* Prose styles for AI responses */
+.prose-office {
+  color: hsl(var(--office-text));
+  max-width: none;
+}
+
+.prose-office h1,
+.prose-office h2,
+.prose-office h3,
+.prose-office h4 {
+  color: hsl(var(--office-text));
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose-office h3 {
+  font-size: 1.125em;
+}
+
+.prose-office p {
+  margin-bottom: 1em;
+  line-height: 1.6;
+}
+
+.prose-office ul,
+.prose-office ol {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+
+.prose-office li {
+  margin-bottom: 0.5em;
+}
+
+.prose-office code {
+  background: hsl(var(--office-dark));
+  border: 1px solid hsl(var(--office-border));
+  border-radius: 0.375rem;
+  padding: 0.125rem 0.375rem;
+  font-size: 0.875em;
+}
+
+.prose-office pre {
+  background: hsl(var(--office-dark));
+  border: 1px solid hsl(var(--office-border));
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+.prose-office pre code {
+  background: none;
+  border: none;
+  padding: 0;
+}
